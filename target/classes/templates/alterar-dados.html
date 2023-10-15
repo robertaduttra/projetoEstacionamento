@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Alterar dados</title>
+	
+
+	<link rel="stylesheet" th:href="@{/bootstrap-5.3.2-dist/css/bootstrap.min.css}">
+	<script th:src="@{/jquery-3.7.1.min-dist/jquery-3.7.1.min.js}"></script>
+	<script th:src="@{/bootstrap-5.3.2-dist/js/bootstrap.min.js}"></script>
+
+
+
+	<style>
+		.mensagem {
+			color: red;
+		}
+		h1{
+	margin-top:100px;
+}
+	</style>
+</head>
+
+<body class="bg-secondary">
+
+	<div th:insert="fragments/publica-nav :: nav"></div>
+
+	<div class="py-4 container">
+		<div class="row">
+			<div class="col">
+				<h1 class="py-5 text-light">Alterar Dados</h1>
+				<form th:action="@{/veiculo/editar/{id}(id=${veiculo.codigoModelo})}" th:object="${veiculo}" method="post">
+
+					<div class="mt-5 row mb-3">
+						<label class=" col-sm-1 col-form-label">Nome:</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" th:field="*{nomeCliente}">
+						</div>
+						<div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('nomeCliente')}" th:errors="*{nomeCliente}"></span>
+						</div>
+					</div>
+	
+					<div class="py-2 row mb-3">
+						<label class="col-sm-1 col-form-label">Endereço:</label>
+						<div class="col-sm-3">
+							<input class="form-control" type="text" th:field="*{enderecoCliente}">
+						</div>
+						<div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('enderecoCliente')}" th:errors="*{enderecoCliente}"></span>
+						</div>
+					
+					</div>					
+
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Placa:</label>
+						<div class="col-sm-2">
+							<input class="form-control" type="text" th:field="*{placa}">
+						</div>
+						<div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('placa')}" th:errors="*{placa}"></span>							
+						</div>
+					</div>
+	
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Modelo:</label>
+						<div class="col-sm-2">
+							<input class="form-control" type="text" th:field="*{nomeModelo}">
+						</div>
+						<div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('nomeModelo')}" th:errors="*{nomeModelo}"></span>							
+						</div>
+					</div>
+	
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Marca:</label>
+						<div class="col-sm-2">
+							<input class="form-control" type="text" th:field="*{codigoMarca}">
+						</div>
+						<div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('codigoMarca')}" th:errors="*{codigoMarca}"></span>
+						</div>
+					</div>
+
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label">Valor Aluguel:</label>
+						<div class="col-sm-2">
+							<input class="form-control" type="text" th:field="*{valorAluguel}">
+						</div>
+						<div class="col-sm-5">
+							<span class="mensagem" th:if="${#fields.hasErrors('valorAluguel')}" th:errors="*{valorAluguel}"></span>
+						</div>
+					</div>
+
+					<input class="btn btn-primary" type="submit" value="Alterar" />																			
+
+					<button class="btn btn-primary" type="submit" value="Cancelar">
+						<a class="nav-item nav-link " href="/veiculo/listar">Cancelar</a>
+					</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

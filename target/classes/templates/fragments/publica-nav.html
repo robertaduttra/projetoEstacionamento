@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<body>
+	<nav th:fragment="nav" class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+		<div class="container-fluid py-3">
+		<a class=" navbar-brand fw-bold fs-4" href="#">Car Parking</a>	
+		<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+			aria-controls="offcanvasNavbar"  aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel1">			
+			<div class="offcanvas-header">
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body navbar-nav justify-content-end flex-grow-1 pe-3">
+				<a class="nav-item nav-link fs-5 " id="offcanvasNavbarLabel1" href="/">Home</a>
+				<a class="nav-item nav-link onclick:active fs-5" href="/veiculo/novo">Cadastrar Veículo</a>
+				<a class="nav-item nav-link fs-5" href="/veiculo/listar">Veículos Cadastrados</a>
+				</div>
+			</div>
+		</div>
+	 </div>
+	</nav>
+	
+</body>
+
+</html>
